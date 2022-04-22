@@ -18,8 +18,17 @@ module.exports = {
     },
     ecmaVersion: 'latest',
     sourceType: 'module',
-    project: './tsconfig.json',
+    project: ['./tsconfig.eslint.json', './tsconfig.json'],
   },
   plugins: ['react', '@typescript-eslint'],
-  rules: {},
+  rules: {
+    'import/prefer-default-export': 'warn',
+    'no-param-reassign': [
+      'error',
+      {
+        props: true,
+        ignorePropertyModificationsFor: ['draft', 'state'],
+      },
+    ],
+  },
 };
